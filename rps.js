@@ -1,4 +1,14 @@
-function getCompChoice() {
+
+
+const getPlayerChoice = function() {
+    return prompt("Choose Rock, Paper, or Scissors", "rock").toLowerCase();
+}
+
+const getFirst = function() {
+    
+}
+
+const getCompChoice = function() {
     choice = Math.floor(Math.random() * 3)
     if (choice === 0) {
         return "rock";
@@ -9,11 +19,7 @@ function getCompChoice() {
     }
 }
 
-function getPlayerChoice() {
-    return prompt("Choose Rock, Paper, or Scissors", "rock").toLowerCase();
-}
-
-function playRound() {
+const playRound = function() {
     let computerSelection = getCompChoice();
     let playerSelection = getPlayerChoice();
 
@@ -41,12 +47,13 @@ function playRound() {
     }
 }
 
-function game() {
+const game = function() {
     let pScore = 0;
     let cScore = 0;
+    let first2 = 3;
     let result = "";
 
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < first2; i++) {
         result = playRound()
         if (result == "Win") {
             pScore++

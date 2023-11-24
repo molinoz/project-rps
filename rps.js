@@ -1,12 +1,23 @@
-
+const rkButton = document.querySelector('#rk')
+const prButton = document.querySelector('#pr')
+const ssButton = document.querySelector('#ss')
+const button = document.querySelector('button')
 
 const getPlayerChoice = function() {
     return prompt("Choose Rock, Paper, or Scissors", "rock").toLowerCase();
 }
 
-const getFirst = function() {
-    
-}
+rkButton.addEventListener('click', () => {
+    let playerSelection = "rock";
+});
+
+prButton.addEventListener('click', () => {
+    let playerSelection = "paper";
+});
+
+ssButton.addEventListener('click', () => {
+    let playerSelection = "scissors";
+});
 
 const getCompChoice = function() {
     choice = Math.floor(Math.random() * 3)
@@ -41,10 +52,6 @@ const playRound = function() {
         console.log("DRAW! A " + playerSelection + " tie!")
         return "Draw"
     } 
-    
-    else {
-        return playerSelection + " isn't part of the game..."
-    }
 }
 
 const game = function() {

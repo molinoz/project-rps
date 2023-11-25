@@ -3,23 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="rps.js"></script>
+    <link rel="stylesheet" href="styles.css"/>
     <title>FIRST 2 WIN</title>
 </head>
 <body>
-    <div>
+    <header>
         <h1>FIRST 2 WIN</h1>
-    </div>
-    <div>
-        
-    </div>
-    <div>
+    </header>
 
-    </div>
-    <div>
-        <button id="rk">ROCK</button>
-        <button id="pr">PAPER</button>
-        <button id="ss">SCISSORS</button>
-    </div>
+    <main>
+        <section>
+            <div class="card" id="F2nbtns">
+                <div>
+                    <h2>FIRST</h2>
+                    <h2>2</h2>
+                </div>
+                <div id="F2number">
+    
+                </div>
+                <button>Start</button>
+                <button>Reset</button>
+            </div>
+            <div class="card" id="Scores">
+                <div id="pscore">
+                    <div>
+                        <h2>UR</h2>
+                        <h2>SCORE</h2>
+                    </div>
+                    <div>
+                        <p>0</p>
+                    </div>
+                </div>
+                <div id="bscore">
+                    <div>
+                        <h2>B0T</h2>
+                        <h2>SCORE</h2>
+                    </div>
+                    <div>
+                        <p>0</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card" id="WinStreak">
+                <div>
+                    <h2>WIN</h2>
+                    <h2>STREAK</h2>
+                </div>
+                <div>
+                    <p>0</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="card">
+                <p>message</p>
+            </div>
+            <div class="card" id="botChoice">
+        
+            </div>
+        </section>
+        
+        <section>
+            <button id="rk">ROCK</button>
+            <button id="pr">PAPER</button>
+            <button id="ss">SCISSORS</button>
+        </section>
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script src="rps.js"></script>
 </body>
 </html>

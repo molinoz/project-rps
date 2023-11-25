@@ -1,24 +1,4 @@
-const rkButton = document.querySelector('#rk')
-const prButton = document.querySelector('#pr')
-const ssButton = document.querySelector('#ss')
-const button = document.querySelector('button')
-
-const getPlayerChoice = function() {
-    return prompt("Choose Rock, Paper, or Scissors", "rock").toLowerCase();
-}
-
-rkButton.addEventListener('click', () => {
-    let playerSelection = "rock";
-});
-
-prButton.addEventListener('click', () => {
-    let playerSelection = "paper";
-});
-
-ssButton.addEventListener('click', () => {
-    let playerSelection = "scissors";
-});
-
+// Code for bot choice
 const getCompChoice = function() {
     choice = Math.floor(Math.random() * 3)
     if (choice === 0) {
@@ -26,10 +6,31 @@ const getCompChoice = function() {
     } else if (choice === 1) {
         return "paper";
     } else if (choice === 2) {
-        return "scissors"
+        return "scissors";
     }
 }
 
+// Buttons for player choice
+const rkButton = document.getElementById('rk')
+const prButton = document.getElementById('pr')
+const ssButton = document.getElementById('ss')
+
+rkButton.addEventListener('click',function() {
+    let playerSelection = "rock";
+    game
+    console.log(playerSelection);
+});
+prButton.addEventListener('click',function() {
+    let playerSelection = "paper";
+    console.log(playerSelection);
+});
+ssButton.addEventListener('click',function() {
+    let playerSelection = "scissors";
+    console.log(playerSelection);
+});
+
+
+// Win condition code
 const playRound = function() {
     let computerSelection = getCompChoice();
     let playerSelection = getPlayerChoice();
@@ -40,20 +41,19 @@ const playRound = function() {
         console.log("You Won!!!" + playerSelection + " beats " + computerSelection)
         return "Win"
     }
-    
     else if ((playerSelection == "paper" && computerSelection == "scissors") ||
     (playerSelection == "rock" && computerSelection == "paper") || 
     (playerSelection == "scissors" && computerSelection == "rock")) {
         console.log("You Lost..." + playerSelection + " doesn't beat " + computerSelection)
         return "Loss"
     }
-    
     else if (playerSelection === computerSelection){
         console.log("DRAW! A " + playerSelection + " tie!")
         return "Draw"
     } 
 }
 
+// Game running code
 const game = function() {
     let pScore = 0;
     let cScore = 0;
@@ -67,15 +67,14 @@ const game = function() {
         } else if (result == "Loss") {
             cScore++
         }
+        if (result == "Win" || result == "Loss") {
+            first2 = first2 + 2
+        }
     }
 
-    if (pScore > cScore) {
+    if (pScore = first2) {
         return "You Win! " + pScore + " to " + cScore
-    } else if (pScore < cScore) {
+    } else if (cScore = first2) {
         return "You Lost! " + pScore + " to " + cScore
-    } else {
-        return "You Tie! " + pScore + " to " + cScore
     }
 }
-
-console.log(game())

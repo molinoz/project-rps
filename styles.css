@@ -1,0 +1,10 @@
+/* OUTLINE */
+header, footer, main {
+    border: 3px solid red;
+}
+section {
+    border: 3px solid green;
+}
+.card {
+    border: 3px solid blue;
+}

@@ -8,3 +8,41 @@ section {
 .card {
     border: 3px solid blue;
 }
+.innerColumn {
+    border: 3px solid orange;
+}
+
+
+
+
+
+section {
+    display: flex;
+}
+
+.innerColumn {
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.title {
+    text-align: center;
+}
+
+.bot {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Scores {
+    display: flex;
+    justify-content: space-between;
+}
+
+.score {
+    width: 6rem;
+}

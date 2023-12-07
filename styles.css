@@ -1,16 +1,16 @@
 /* OUTLINE */
 /* header, footer, main {
     border: 3px solid red;
-} */
-/* section {
+}
+section {
     border: 3px solid green;
-} */
-/* .card {
+}
+.card {
     border: 3px solid blue;
 }
 .innerColumn {
     border: 3px solid orange;
-} */
+}  */
 
 
 
@@ -24,13 +24,13 @@ section {
     display: flex;
     justify-content: space-between;
     width: 95%;
-    max-width: 600px;
+    max-width: 400px;
     margin-left: auto;
     margin-right: auto;
 }
 
 .title {
-    text-align: center;
+    justify-content: center;
 }
 
 .bot {
@@ -66,4 +66,10 @@ section {
 .announce {
     text-align: center;
     margin-inline: 1cap;
+    min-width: 10cap;
+}
+
+button:active {
+    background-color: darkgrey;
+    color: black;
 }

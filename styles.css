@@ -46,3 +46,18 @@ section {
 .score {
     width: 6rem;
 }
+
+.card {
+    border: 4px solid black;
+}
+
+.box {
+    border: 2px solid black;
+    background-color: gainsboro;
+    height: 30px;
+    width: 100px;
+    padding-inline: 6px;
+    padding-block: 1px;
+    line-height: 3cap;
+    text-align: center;
+}

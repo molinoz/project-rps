@@ -32,23 +32,23 @@ ssButton.addEventListener('click',function() {
 
 // Win condition code
 const playRound = function() {
-    let computerSelection = getCompChoice();
-    let playerSelection = getPlayerChoice();
+    // let computerSelection = getCompChoice();
+    // let playerSelection = getPlayerChoice();
 
     if ((playerSelection == "paper" && computerSelection == "rock") || 
     (playerSelection == "scissors" && computerSelection == "paper") || 
     (playerSelection == "rock" && computerSelection == "scissors")) {
-        console.log("You Won!!!" + playerSelection + " beats " + computerSelection)
+        // console.log("You Won!!!" + playerSelection + " beats " + computerSelection)
         return "Win"
     }
     else if ((playerSelection == "paper" && computerSelection == "scissors") ||
     (playerSelection == "rock" && computerSelection == "paper") || 
     (playerSelection == "scissors" && computerSelection == "rock")) {
-        console.log("You Lost..." + playerSelection + " doesn't beat " + computerSelection)
+        // console.log("You Lost..." + playerSelection + " doesn't beat " + computerSelection)
         return "Loss"
     }
     else if (playerSelection === computerSelection){
-        console.log("DRAW! A " + playerSelection + " tie!")
+        // console.log("DRAW! A " + playerSelection + " tie!")
         return "Draw"
     } 
 }
@@ -78,3 +78,4 @@ const game = function() {
         return "You Lost! " + pScore + " to " + cScore
     }
 }
+

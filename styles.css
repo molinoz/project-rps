@@ -36,6 +36,15 @@ section {
 .bot {
     margin-left: auto;
     margin-right: auto;
+    color: gainsboro;
+    border: 2px solid black;
+    background-color: black;
+    height: 30px;
+    width: 100px;
+    padding-inline: 6px;
+    padding-block: 1px;
+    line-height: 3cap;
+    text-align: center;
 }
 
 .Scores {
@@ -72,4 +81,11 @@ section {
 button:active {
     background-color: darkgrey;
     color: black;
+}
+
+.pScore {
+
+}
+.cScore {
+    
 }

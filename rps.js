@@ -1,81 +1,137 @@
+const choices = ["rock","paper","scissors"]
+let pScore = 0;
+let cScore = 0;
+let ties = 0;
+let first2 = 5;
+
+function resetGame() {
+    pScore = 0;
+    cScore = 0;
+    document.querySelector('.pScore').textContent = `${pScore}`
+    document.querySelector('.cScore').textContent = `${cScore}`
+    document.querySelector('#resultM').textContent =``
+}
+
+
 // Code for bot choice
-const getCompChoice = function() {
-    choice = Math.floor(Math.random() * 3)
-    if (choice === 0) {
-        return "rock";
-    } else if (choice === 1) {
-        return "paper";
-    } else if (choice === 2) {
-        return "scissors";
-    }
+function getCompChoice() {
+    // Update dom with the info
+    return choices[Math.floor(Math.random() * choices.length)]
 }
 
 // Buttons for player choice
-const rkButton = document.getElementById('rk')
-const prButton = document.getElementById('pr')
-const ssButton = document.getElementById('ss')
-
-rkButton.addEventListener('click',function() {
-    let playerSelection = "rock";
-    game
-    console.log(playerSelection);
-});
-prButton.addEventListener('click',function() {
-    let playerSelection = "paper";
-    console.log(playerSelection);
-});
-ssButton.addEventListener('click',function() {
-    let playerSelection = "scissors";
-    console.log(playerSelection);
-});
+// function getPlayerChoice() {
+//     let input = prompt("type rock paper or scissors");
+//     while (input == null) {
+//         input = prompt("type rock paper or scissors");
+//     }
+//     input = input.toLowerCase();
+//     return input
+// }
 
 
 // Win condition code
-const playRound = function() {
-    // let computerSelection = getCompChoice();
-    // let playerSelection = getPlayerChoice();
-
+function checkOutcome(playerSelection,computerSelection) {
     if ((playerSelection == "paper" && computerSelection == "rock") || 
     (playerSelection == "scissors" && computerSelection == "paper") || 
     (playerSelection == "rock" && computerSelection == "scissors")) {
-        // console.log("You Won!!!" + playerSelection + " beats " + computerSelection)
+        //console.log("You Won!!!" + playerSelection + " beats " + computerSelection)
+        pScore++
         return "Win"
     }
-    else if ((playerSelection == "paper" && computerSelection == "scissors") ||
-    (playerSelection == "rock" && computerSelection == "paper") || 
-    (playerSelection == "scissors" && computerSelection == "rock")) {
-        // console.log("You Lost..." + playerSelection + " doesn't beat " + computerSelection)
-        return "Loss"
-    }
     else if (playerSelection === computerSelection){
-        // console.log("DRAW! A " + playerSelection + " tie!")
+        //console.log("DRAW! A " + playerSelection + " tie!")
+        ties++
         return "Draw"
     } 
+    else {
+        //console.log("You Lost..." + playerSelection + " doesn't beat " + computerSelection)
+        cScore++
+        return "Loss"
+    }
+}
+
+function updateTally() {
+    document.querySelector('.pScore').textContent = `${pScore}`
+    console.log("pScore:" + pScore)
+    document.querySelector('.cScore').textContent = `${cScore}`
+    console.log("cScore:" + cScore)
+    console.log("--------------")
+}
+
+function displayInfo(playerSelection,computerSelection,outcome) {
+    // LOOK HERE USE document.querySelectorAll VID AT 7:30
+    if(outcome == "Win") {
+        //console.log("You Won!!!" + playerSelection + " beats " + computerSelection)
+        document.querySelector('#resultM').textContent =`You Won!!! ${playerSelection} beats ${computerSelection}`
+    }
+    else if(outcome == "Draw") {
+        //console.log("DRAW! A " + playerSelection + " tie!")
+        document.querySelector('#resultM').textContent = `DRAW! Both chose ${playerSelection}!`
+    }
+    else {
+        //console.log("You Lost..." + playerSelection + " doesn't beat " + computerSelection)
+        document.querySelector('#resultM').textContent = `You Lost... ${playerSelection} doesn't beat ${computerSelection}`
+    }
+}
+
+function displayEnd() {
+    if (pScore == first2) {
+        document.querySelector('#resultM').textContent = `You Won! ${pScore} out of ${cScore+pScore+ties} games. Now click Reset to try again`
+    } else {
+        document.querySelector('#resultM').textContent = `You Lost! ${cScore} out of ${cScore+pScore+ties} games. Now click Reset to try again`
+    }
+}
+
+function playRound(playerSelection) {
+    if(pScore >= first2) {
+        return;
+    }
+    console.log("Player:",playerSelection)
+
+    let computerSelection = getCompChoice();
+    console.log("Comp:",computerSelection)
+    const outcome = checkOutcome(playerSelection,computerSelection);
+    console.log(outcome)
+    updateTally();
+    displayInfo(playerSelection,computerSelection,outcome);
+    if (pScore == first2 || cScore == first2) {
+        displayEnd()
+    }
 }
 
 // Game running code
-const game = function() {
-    let pScore = 0;
-    let cScore = 0;
-    let first2 = 3;
-    let result = "";
+// function game() {
+//     let result = "";
 
-    for (let i = 0; i < first2; i++) {
-        result = playRound()
-        if (result == "Win") {
-            pScore++
-        } else if (result == "Loss") {
-            cScore++
-        }
-        if (result == "Win" || result == "Loss") {
-            first2 = first2 + 2
-        }
-    }
+//     for (let i = 0; i < first2; i++) {
+//         result = playRound()
+//         if (result == "Win") {
+//             pScore++
+//         } else if (result == "Loss") {
+//             cScore++
+//         }
+//     }
 
-    if (pScore = first2) {
-        return "You Win! " + pScore + " to " + cScore
-    } else if (cScore = first2) {
-        return "You Lost! " + pScore + " to " + cScore
-    }
+    // if (pScore = first2) {
+    //     return "You Win! " + pScore + " out of " + (cScore+pScore) + " games"
+    // } else if (cScore = first2) {
+    //     return "You Lost! " + cScore + " out of " + (cScore+pScore) + " games"
+    // }
+//}
+
+function startGame() {
+    // Play game until goal
+    let cho = document.querySelectorAll('.box')
+    cho.forEach((cho) =>
+        cho.addEventListener(('click'), () =>{
+            if(cho.id) {
+                playRound(cho.id);
+            }
+        })
+    );
 }
 
+
+startGame()
+//console.log(game())

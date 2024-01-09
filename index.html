@@ -17,42 +17,44 @@
 
     <main>
         <section class="innerColumn title">
-            <h2>First to 3 wins</h2>
+            <h2>First to 5 wins</h2>
         </section>
+
+
         <section>
             <div class="card" id="F2nbtns">
                 <div>
                     <p>FIRST 2</p>
                 </div>
-                <h2>0</h2>
+                    <h2 class="f2">5</h2>
                 <div>
-                    <button>Start</button>
-                    <button>Reset</button>
+                    <button class="reset" onclick="resetGame()">Reset</button>
                 </div>
             </div>
-            
+
             <div class="innerColumn Scores">
-                <div class="score card" id="pscore">
+                <div class="score card">
                     <div>
                         <p>UR SCORE</p>
                     </div>
                     <div>
-                        <h2>0</h2>
+                        <h2 class="pScore">0</h2>
                     </div>
                 </div>
                 <div class="announce" id="botChoice">
                     <h1 id="result">RESULT</h1>
                     <p id="resultM"></p>
                 </div>
-                <div class="score card" id="bscore">
+                <div class="score card">
                     <div>
                         <p>B0T SCORE</p>
                     </div>
                     <div>
-                        <h2>0</h2>
+                        <h2 class="cScore">0</h2>
                     </div>
                 </div>
             </div>
+
             <div class="card" id="WinStreak">
                 <div>
                     <p>WIN STREAK</p>
@@ -66,7 +68,7 @@
 
         <section>
             <div class="innerColumn">
-                <p class="box bot" id="botmessage">
+                <p class="bot" id="botmessage">
                     message
                 </p>
             </div>
@@ -75,9 +77,9 @@
 
         <section>
             <div class="innerColumn">
-                <button class="box" id="rk">ROCK</button>
-                <button class="box" id="pr">PAPER</button>
-                <button class="box" id="ss">SCISSORS</button>
+                <button class="box" id="rock">ROCK</button>
+                <button class="box" id="paper">PAPER</button>
+                <button class="box" id="scissors">SCISSORS</button>
             </div>
         </section>
     </main>
@@ -87,8 +89,6 @@
     <footer>
 
     </footer>
-
-
 
     <script src="rps.js"></script>
 </body>
